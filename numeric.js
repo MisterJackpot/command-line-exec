@@ -43,8 +43,52 @@ function PrimeSearch(n) {
     }
 }
 
+function calcChange(price, pay) {
+    var change = pay - price;
+    if (change < 0) console.log("Invalid Values");
+    else {
+
+        console.log("Change: R$" + change)
+
+        var aux = change / 100;
+        if (aux >= 1) {
+            console.log(parseInt(aux) + " R$100");
+            change = change - (parseInt(aux) * 100)
+        }
+        aux = change / 50;
+        if (aux >= 1) {
+            console.log(parseInt(aux) + " R$50");
+            change = change - (parseInt(aux) * 50)
+        }
+        aux = change / 20;
+        if (aux >= 1) {
+            console.log(parseInt(aux) + " R$20");
+            change = change - (parseInt(aux) * 20)
+        }
+        aux = change / 10;
+        if (aux >= 1) {
+            console.log(parseInt(aux) + " R$10");
+            change = change - (parseInt(aux) * 10)
+        }
+        aux = change / 5;
+        if (aux >= 1) {
+            console.log(parseInt(aux) + " R$5");
+            change = change - (parseInt(aux) * 5)
+        }
+        aux = change / 2;
+        if (aux >= 1) {
+            console.log(parseInt(aux) + " R$2");
+            change = change - (parseInt(aux) * 2)
+        }
+        if (aux >= 1) {
+            console.log(parseInt(aux) + " R$1");
+        }
+    }
+}
+
 
 exports.fib = (n) => fib(n);
 exports.fat = (n) => fat(n);
 exports.prime = (n) => PrimeSearch(n);
 exports.its_prime = (n) => prime(n);
+exports.calcChange = (n,m) => calcChange(n,m);
