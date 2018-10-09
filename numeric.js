@@ -86,9 +86,39 @@ function calcChange(price, pay) {
     }
 }
 
+function binaryToDec(bin){
+    var digits = (""+bin).split("");
+    digits.reverse();
+    var result = 0;
+    var aux = 0;
+    digits.forEach(element => {
+        if(element>1 ||element < 0) return "Not Binary"
+        if(element == 1){
+            result = result + Math.pow(2,aux);
+        }
+        aux ++;
+    });
+    console.log(result);
+}
+
+function decToBinary(dec){
+    var result = dec;
+    var reminder = 0;
+    var bin = [];
+    while(result>1){
+        reminder = result%2;
+        result = result/2;
+        bin.push(parseInt(reminder));
+    }
+    bin.reverse();
+    console.log(bin);
+}
+
 
 exports.fib = (n) => fib(n);
 exports.fat = (n) => fat(n);
 exports.prime = (n) => PrimeSearch(n);
 exports.its_prime = (n) => prime(n);
 exports.calcChange = (n,m) => calcChange(n,m);
+exports.binaryToDec = (n) => binaryToDec(n);
+exports.decToBinary = (n) => decToBinary(n);

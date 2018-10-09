@@ -41,4 +41,17 @@ program
     .description('Calculate the change for a given [price] and [payment]')
     .action(numeric.calcChange);
 
+program
+    .version('0.0.1')
+    .command('binary_dec [binary]')
+    .option('-b, --binary','Binary')
+    .option('-d, --decimal','Decimal')
+    .description('Calculate the decimal value of [binary]')
+    .action((n, cmd)=>{
+        if(cmd.binary)numeric.binaryToDec(n);
+        else if(cmd.decimal)numeric.decToBinary(n);
+        else console.log("Use -b to convert binary and -d to convert decimal")
+    });
+
+
 program.parse(process.argv);
